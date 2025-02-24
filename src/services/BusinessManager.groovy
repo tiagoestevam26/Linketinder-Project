@@ -1,3 +1,5 @@
+package services
+
 import models.Business
 
 class BusinessManager {
