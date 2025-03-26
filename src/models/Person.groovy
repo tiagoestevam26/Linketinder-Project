@@ -1,5 +1,5 @@
 package models
 
 trait Person {
-    String name, email, state, cep, description;
+    String name, email, country, cep, description, password;
 }

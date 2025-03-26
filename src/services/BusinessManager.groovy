@@ -1,17 +1,18 @@
 package services
 
+import database.BusinessDAO
 import models.Business
 
 class BusinessManager {
     List<Business> businesses = []
 
     void addBusiness(Business buss){
-        businesses << buss
+        BusinessDAO.salvar(buss)
     }
 
     void listBusinesses(){
         businesses.each {it->
-            println(it.toString())
+            BusinessDAO.listarTodos().each { println it }
         }
     }
 

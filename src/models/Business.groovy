@@ -1,34 +1,37 @@
 package models
 
 class Business implements Person{
-    String CNPJ, country
-    List<String> waitedCompetences = []
+    String CNPJ
+    List<Job> openJobs = []
 
-
-    Business(models_Person__name,models_Person__email, String CNPJ, String country, models_Person__state, models_Person__cep, models_Person__description) {
-        this.CNPJ = CNPJ
+    Business(String name, String email, String cnpj, String country, String cep, String description, String password) {
+        this.name = name
+        this.email = email
         this.country = country
-        this.models_Person__name = models_Person__name
-        this.models_Person__email = models_Person__email
-        this.models_Person__state = models_Person__state
-        this.models_Person__cep = models_Person__cep
-        this.models_Person__description = models_Person__description
+        this.cep = cep
+        this.description = description
+        this.CNPJ = cnpj
+        this.password = password
     }
 
-    void addCompetence(String comp){
-        waitedCompetences << comp
+
+
+    void addJob(Job job) {
+        openJobs << job
     }
+
+
 
     @Override
     public String toString() {
         return "Business{" +
                 "CNPJ='" + CNPJ + '\'' +
-                ", country='" + country + '\'' +
                 ", models_Person__name='" + models_Person__name + '\'' +
                 ", models_Person__email='" + models_Person__email + '\'' +
-                ", models_Person__state='" + models_Person__state + '\'' +
+                ", models_Person__country='" + models_Person__country + '\'' +
                 ", models_Person__cep='" + models_Person__cep + '\'' +
                 ", models_Person__description='" + models_Person__description + '\'' +
+                ", models_Person__password='" + models_Person__password + '\'' +
                 '}';
     }
 }

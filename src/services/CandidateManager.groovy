@@ -1,20 +1,16 @@
 package services
 
+import database.CandidateDAO
 import models.Candidate
 
 class CandidatesManager {
-    List<Candidate> candidatos= []
 
     void listCandidates(){
-        candidatos.each {it ->
-            println(it.toString())
-        }
+        CandidateDAO.listarTodos().each { println it }
     }
 
     void addCandidato(Candidate candidato) {
-        candidatos << candidato
+        CandidateDAO.salvar(candidato)
     }
-
-
 
 }

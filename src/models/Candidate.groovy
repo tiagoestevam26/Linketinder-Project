@@ -1,33 +1,38 @@
 package models
 
 class Candidate implements Person{
-    String CPF, age;
-    List<String> competences = []
 
-    Candidate(models_Person__name,models_Person__email,models_Person__state,models_Person__cep,models_Person__description, String CPF,String age    ) {
-        this.CPF = CPF
-        this.age = age
-        this.models_Person__name = models_Person__name
-        this.models_Person__email = models_Person__email
-        this.models_Person__state = models_Person__state
-        this.models_Person__cep = models_Person__cep
-        this.models_Person__description = models_Person__description
+    String CPF;
+    Date bornDate;
+    List<Competence> competences = []
+
+    Candidate(String name, Date born, String email, String cpf, String country, String cep, String description, String password) {
+        this.name = name
+        this.bornDate = born
+        this.email = email
+        this.country = country
+        this.cep = cep
+        this.description = description
+        this.CPF = cpf
+        this.password = password
     }
 
-    void addCompetence(String comp){
+    void addCompetence(Competence comp) {
         competences << comp
     }
 
+
     @Override
     public String toString() {
-        return "Candidate{" +
-                "CPF='" + CPF + '\'' +
-                ", age='" + age + '\'' +
-                ", models_Person__name='" + models_Person__name + '\'' +
-                ", models_Person__email='" + models_Person__email + '\'' +
-                ", models_Person__state='" + models_Person__state + '\'' +
-                ", models_Person__cep='" + models_Person__cep + '\'' +
-                ", models_Person__description='" + models_Person__description + '\'' +
-                '}';
+        return String.format(
+                "----------------------------------\n" +
+                        "👤 Candidato\n" +
+                        "📋 Descrição: %s\n" +
+                        "🛠️ Competências: %s\n" +
+                        "----------------------------------",
+                this.description,
+                competences.collect { it.getName() }.join(", ")
+        );
     }
+
 }
