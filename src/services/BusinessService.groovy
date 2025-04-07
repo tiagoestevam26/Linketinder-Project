@@ -3,7 +3,7 @@ package services
 import database.BusinessDAO
 import models.Business
 
-class BusinessManager {
+class BusinessService {
     List<Business> businesses = []
 
     void addBusiness(Business buss){

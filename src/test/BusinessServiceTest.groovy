@@ -1,13 +1,13 @@
 import models.Business
-import services.BusinessManager
+import services.BusinessService
 import org.junit.jupiter.api.Test
 import static org.junit.jupiter.api.Assertions.*
 
-class BusinessManagerTest {
+class BusinessServiceTest {
 
     @Test
     void testAddBusiness() {
-        BusinessManager manager = new BusinessManager()
+        BusinessService manager = new BusinessService()
         Business business = new Business("Empresa X", "empresa@email.com", "11222333444455", "Brasil", "SP", "54321-876", "Tech Company")
 
         manager.addBusiness(business)
